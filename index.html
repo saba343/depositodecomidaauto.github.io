@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto DepósitoComidaAuto - Introdução</title>
+    <style>
+        :root {
+            --primary: #2b6cb0;
+            --primary-dark: #2c5282;
+            --secondary: #319795;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --white: #ffffff;
+            --gray: #718096;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 120px auto 60px;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 140px;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .tech-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tech-category {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .tech-category h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #edf2f7;
+            color: #4a5568;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-2rem - 8px);
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid var(--white);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            main {
+                margin-top: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Depósito<span>ComidaAuto</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#visao-geral">Visão Geral</a></li>
+                    <li><a href="#objetivos">Objetivos</a></li>
+                    <li><a href="#tecnologias">Tecnologias</a></li>
+                    <li><a href="#cronograma">Cronograma</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>Introdução ao Projeto</h1>
+            <p>Desenvolvimento de um sistema automatizado e inteligente para a gestão e distribuição controlada de alimentação animal.</p>
+        </div>
+
+        <section id="visao-geral">
+            <h2>Visão Geral do Projeto</h2>
+            <p>O <strong>DepósitoComidaAuto</strong> surge como uma resposta tecnológica para otimizar a rotina de alimentação animal, minimizando o desperdício e garantindo que as porções corretas sejam entregues nos momentos ideais. O projeto foca na criação de um dispositivo físico robusto integrado com uma camada de controlo inteligente, permitindo a monitorização contínua do stock de ração restante e o agendamento preciso das refeições.</p>
+        </section>
+
+        <section id="objetivos">
+            <h2>Objetivos Principais</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Automação Eficiente</h3>
+                    <p>Substituir a necessidade de intervenção humana direta na distribuição diária de ração através de um mecanismo eletromecânico confiável.</p>
+                </div>
+                <div class="card">
+                    <h3>Agendamento Preciso</h3>
+                    <p>Permitir a configuração de rotinas alimentares rígidas baseadas em horários específicos e quantidades pré-determinadas para manter a saúde do animal.</p>
+                </div>
+                <div class="card">
+                    <h3>Controlo de Stock</h3>
+                    <p>Monitorizar o nível do depósito em tempo real, emitindo alertas visuais ou digitais assim que a quantidade de comida atingir um limite crítico.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologias">
+            <h2>Tecnologias Planeadas</h2>
+            <div class="tech-container">
+                <div class="tech-category">
+                    <h3>Hardware / Componentes</h3>
+                    <span class="tag">Microcontrolador (Arduino / ESP32)</span>
+                    <span class="tag">Servomotor / Motor de Passo</span>
+                    <span class="tag">Sensor Ultrassónico (Nível)</span>
+                    <span class="tag">Módulo RTC (Relógio de Tempo Real)</span>
+                    <span class="tag">Display LCD / LEDs Indicadores</span>
+                </div>
+                <div class="tech-category">
+                    <h3>Software / Integração</h3>
+                    <span class="tag">C++ (Firmware)</span>
+                    <span class="tag">HTML5 / CSS3 (Interface)</span>
+                    <span class="tag">Protocolo MQTT / HTTP</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="cronograma">
+            <h2>Cronograma de Desenvolvimento</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Fase 1: Investigação e Requisitos</div>
+                    <p>Levantamento de necessidades, escolha de componentes eletrónicos e desenho do modelo estrutural do depósito.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Fase 2: Prototipagem de Hardware</div>
+                    <p>Montagem dos circuitos em breadboard, calibração dos sensores de nível e testes iniciais com o motor atuador.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Fase 3: Desenvolvimento de Software</div>
+                    <p>Programação da lógica de agendamento no microcontrolador e criação da interface web básica para acompanhamento.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Fase 4: Integração e Testes Finais</div>
+                    <p>Junção do ecossistema físico e digital, testes de stress do mecanismo sob carga e ajustes finais de precisão.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Projeto DepósitoComidaAuto. Desenvolvido para fins académicos/apresentação.</p>
+    </footer>
+
+</body>
+</html>
